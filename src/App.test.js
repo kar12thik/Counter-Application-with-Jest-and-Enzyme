@@ -40,7 +40,7 @@ test("renders counter display", () => {
 test("counter starts at 0", () => {
   const wrapper = setup();
   const count = findByTestAttr(wrapper, "count").text();
-  expect(count).toBe("0"); // do this first with an integer and show failure!
+  expect(count).toBe("0");
 });
 
 describe("Increment", () => {
@@ -89,13 +89,12 @@ describe("decrement button", () => {
 });
 describe("error when counter goes below 0", () => {
   test("error does not show when not needed", () => {
-    // I plan to implement this by using a "hidden" class for the error div
-    // I plan to use the data-test value 'error-message' for the error div
+    // Implement this by using a "hidden" class for the error div
+    // Use the data-test value 'error-message' for the error div
     const wrapper = setup();
     const errorDiv = findByTestAttr(wrapper, "error-message");
 
     // using enzyme's ".hasClass()" method
-    // http://airbnb.io/enzyme/docs/api/ShallowWrapper/hasClass.html
     const errorHasHiddenClass = errorDiv.hasClass("hidden");
     console.log(wrapper.debug());
     expect(errorHasHiddenClass).toBe(true);
